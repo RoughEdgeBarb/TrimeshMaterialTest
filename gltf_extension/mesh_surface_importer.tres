@@ -1,0 +1,6 @@
+[gd_resource type="GLTFDocumentExtension" script_class="MeshSurfaceImporter" load_steps=2 format=3 uid="uid://ci1f0arvcilg"]
+
+[ext_resource type="Script" path="res://gltf_extension/mesh_surface_importer.gd" id="1_buxy6"]
+
+[resource]
+script = ExtResource("1_buxy6")

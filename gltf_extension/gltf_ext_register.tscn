@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://nq2m1yufr40x"]
+
+[ext_resource type="Script" path="res://gltf_extension/gltf_ext_register.gd" id="1_8lcpu"]
+[ext_resource type="GLTFDocumentExtension" uid="uid://ci1f0arvcilg" path="res://gltf_extension/mesh_surface_importer.tres" id="2_ue26p"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_8lcpu")
+extensions_to_register = Array[GLTFDocumentExtension]([ExtResource("2_ue26p")])

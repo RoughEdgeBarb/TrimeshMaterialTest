@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://2ntohwrxowpp"]
+[gd_scene load_steps=7 format=3 uid="uid://2ntohwrxowpp"]
 
 [ext_resource type="PackedScene" uid="uid://dn5248i8j6j7f" path="res://character.tscn" id="1_jgje1"]
-[ext_resource type="PackedScene" uid="uid://cl2xrj554ue5f" path="res://test_scene.glb" id="2_xoc25"]
+[ext_resource type="PackedScene" uid="uid://cl2xrj554ue5f" path="res://test_scene.glb" id="1_p5emn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v6k3d"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,6 +16,8 @@ sky = SubResource("Sky_phjji")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_qjswd"]
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -28,4 +30,11 @@ shadow_enabled = true
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_jgje1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60649, 0)
 
-[node name="test_scene" parent="." instance=ExtResource("2_xoc25")]
+[node name="WorldBoundaryFloor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldBoundaryFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("WorldBoundaryShape3D_qjswd")
+
+[node name="test_scene" parent="." instance=ExtResource("1_p5emn")]
