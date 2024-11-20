@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn5248i8j6j7f"]
+
+[ext_resource type="Script" path="res://character_body_3d.gd" id="1_iy153"]
+[ext_resource type="Script" path="res://mat_raycast.gd" id="3_6686v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qxvpa"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("neck", "camera", "play_coll")]
+script = ExtResource("1_iy153")
+neck = NodePath("Neck")
+camera = NodePath("Neck/Camera3D")
+play_coll = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_qxvpa")
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.516488, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Neck"]
+current = true
+
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+target_position = Vector3(0, -2, 0)
+script = ExtResource("3_6686v")
